@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.hypermode.com/modus.json",
+  "endpoints": {
+    "default": {
+      "type": "graphql",
+      "path": "/graphql",
+      "auth": "bearer-token"
+    }
+  },
+  "models": {
+    "minilm": {
+      "sourceModel": "sentence-transformers/all-MiniLM-L6-v2",
+      "provider": "hugging-face",
+      "connection": "hypermode",
+      "dedicated": false
+    }
+  },
+  "collections": {
+    "texts": {
+      "searchMethods": {
+        "searchMethod1": {
+          "embedder": "miniLMEmbed",
+          "index": {
+            "type": "sequential"
+          }
+        }
+      }
+    }
+  }
+}
